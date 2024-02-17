@@ -20,7 +20,8 @@
     <aside class="sidebar">
       <ul>
         <li><a href="/courses">Курсы</a></li>
-        <li><a href="/quiz">Тесты</a></li>
+        <li><a href="/tests">Тесты</a></li>
+        <li><a href="/kit">kit</a></li>
       </ul>
 
     </aside>
@@ -31,6 +32,12 @@
       </route>
       <route path="courses">
         <application name="@lms/courses"></application>
+      </route>
+      <route path="tests">
+        <application name="@lms/tests"></application>
+      </route>
+      <route path="kit">
+        <application name="@lms/kit"></application>
       </route>
     </main>
   </div>
