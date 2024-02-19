@@ -25,15 +25,25 @@
       overflow: hidden;
     }
     .sidebar {
+      padding: 24px;
       width: 150px;
       height: 100%;
-      background-color: rgba(0,0,0, 0.05);
+      background-color: #fff;
+      box-shadow: 0 10px 10px rgba(0,0,0,.05)
     }
+    .sidebar li {
+      margin-bottom: 12px;
+    }
+    .sidebar li a {
+      text-decoration: underline;
+    }
+
     .content {
       width: calc(100% - 150px);
       height: 100%;
       overflow: auto;
       padding: 24px;
+      background-color: #f7f9fd;
     }
 
   </style>
