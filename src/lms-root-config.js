@@ -1,3 +1,15 @@
+function getCookie(name) {
+  let matches = document.cookie.match(
+    new RegExp(
+      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)"
+    )
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+const storageToken = localStorage.getItem("token");
+const cookieToken = getCookie("auth._token.keycloak");
+
 import { registerApplication, start } from "single-spa";
 import {
   constructApplications,
@@ -15,6 +27,13 @@ const applications = constructApplications({
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
-applications.forEach(registerApplication);
+const applicationsWithToken = applications.map((app) => ({
+  ...app,
+  customProps: () => ({
+    token: cookieToken,
+  }),
+}));
+
+applicationsWithToken.forEach(registerApplication);
 layoutEngine.activate();
 start();
