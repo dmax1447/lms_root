@@ -1,15 +1,3 @@
-function getCookie(name) {
-  let matches = document.cookie.match(
-    new RegExp(
-      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)"
-    )
-  );
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-
-const storageToken = localStorage.getItem("token");
-const cookieToken = getCookie("auth._token.keycloak");
-
 import { registerApplication, start } from "single-spa";
 import {
   constructApplications,
@@ -17,6 +5,10 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 import microfrontendLayout from "./microfrontend-layout.html";
+import { getSavedUserToken } from "./helpers";
+import { getCurrentUser } from "./api";
+import nav from "./nav.json";
+const token = getSavedUserToken();
 
 const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
@@ -27,13 +19,21 @@ const applications = constructApplications({
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
-const applicationsWithToken = applications.map((app) => ({
-  ...app,
-  customProps: () => ({
-    token: cookieToken,
-  }),
-}));
+getCurrentUser()
+  .then((user) => {
+    const applicationsWithCustomProps = applications.map((app) => ({
+      ...app,
+      customProps: () => ({
+        token,
+        user,
+        nav,
+      }),
+    }));
 
-applicationsWithToken.forEach(registerApplication);
-layoutEngine.activate();
-start();
+    applicationsWithCustomProps.forEach(registerApplication);
+    layoutEngine.activate();
+    start();
+  })
+  .catch((err) => {
+    console.warn("error");
+  });

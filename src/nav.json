@@ -1,0 +1,36 @@
+[
+  {
+    "path": "/courses",
+    "id": "courses",
+    "title": "Курсы",
+    "children": [
+      {
+        "path": "/courses/stat",
+        "id": "courses|stat",
+        "title": "Статистика",
+        "children": [
+          {
+            "path": "/courses/stat/assignment",
+            "id": "assignment",
+            "title": "Задания"
+          },
+          {
+            "path": "/courses/stat/quiz",
+            "id": "courses|stat|tests",
+            "title": "Тесты"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/tests",
+    "id": "tests",
+    "title": "Тесты"
+  },
+  {
+    "path": "/kit",
+    "id": "kit",
+    "title": "Ui-kit"
+  }
+]
