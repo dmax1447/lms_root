@@ -86,6 +86,7 @@
       "imports": {
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
         "@lms/root-config": "//localhost:9001/lms-root-config.js",
+        "@lms/styleguide": "http://localhost:8200/lms-styleguide.js",
         "@lms/util": "//localhost:8010/lms-util.js",
         "@lms/courses": "//localhost:8001/js/app.js",
         "@lms/tests": "//localhost:8002/js/app.js",
@@ -117,6 +118,7 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <script>
+    System.import('@lms/styleguide');
     System.import('@lms/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>

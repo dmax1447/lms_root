@@ -7,9 +7,6 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-import mitt from "mitt";
-const eventBus = mitt();
-
 const storageToken = localStorage.getItem("token");
 const cookieToken = getCookie("auth._token.keycloak");
 
@@ -34,7 +31,6 @@ const applicationsWithToken = applications.map((app) => ({
   ...app,
   customProps: () => ({
     token: cookieToken,
-    eventBus,
   }),
 }));
 
