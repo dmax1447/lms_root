@@ -17,12 +17,18 @@ function login(username, password) {
 }
 
 function getCurrentUser() {
-  const params = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-  return axiosInstance.get("/user/me", params).then((r) => r.data);
+  return new Promise((resolve) => {
+    setTimeout((res) => {
+      resolve({ name: "Max" });
+    }, 100);
+  });
+
+  // const params = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
+  // return axiosInstance.get("/user/me", params).then((r) => r.data);
 }
 
 export { axiosInstance, getCurrentUser, login };
