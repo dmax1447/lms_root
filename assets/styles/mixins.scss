@@ -1,0 +1,202 @@
+// dropdown menus Mixin
+@mixin dropdown-icon {
+  .dropdown-icon {
+    font-size: 1.1rem;
+    transition: transform 0.35s ease-out;
+    display: inline-block;
+  }
+  .show .dropdown-icon {
+    transform: scaleY(-1);
+    color: var(--primary-color);
+  }
+  .hide .dropdown-icon {
+    transform: scaleY(1);
+    color: var(--gray-color);
+  }
+}
+
+// Breakpoints
+@mixin max($size) {
+  @media (max-width: #{$size}px) {
+    @content;
+  }
+}
+
+@mixin min($size) {
+  @media (min-width: #{$size}px) {
+    @content;
+  }
+}
+
+@mixin minmax($min, $max) {
+  @media (min-width: #{$min}px) and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+@mixin scroll() {
+  &::-webkit-scrollbar {
+    width: 0.35rem;
+    height: 0.35rem;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $background-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($primary-color, 0.5);
+    border-radius: 1rem;
+  }
+}
+
+// Shadows
+@mixin shadow() {
+  box-shadow: 6px 1px 10px -3px rgba(0, 0, 0, 0.05);
+}
+
+// Card Builder
+@mixin cards() {
+  border-radius: 4px;
+  background: #fff;
+  @include shadow();
+}
+@mixin input-border() {
+  border: 1px solid $input-border-color;
+  border-radius: 2px;
+}
+// Card Builder
+@mixin widgets() {
+  border-radius: 10px;
+  background: #fff;
+  @include shadow();
+}
+
+@mixin settings-attributes-fields {
+  .fields {
+    padding-left: 20px;
+  }
+}
+
+@mixin centered($axis: "both") {
+  position: absolute;
+
+  @if $axis == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @if $axis == "x" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if $axis == "y" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin full-screen-mode-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  transform: translate(-1.5rem, -2.875rem);
+  min-width: calc(100% + 3rem);
+  border-left: 1px solid #ecf2f3;
+  height: 65px;
+  background: $white-color;
+  padding: 0 20px;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// hover only from tablet
+@mixin hover {
+  @media (min-width: 992px) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// active only if element is hover and from tablet
+@mixin active {
+  @media (min-width: 992px) {
+    &:hover:active {
+      @content;
+    }
+  }
+}
+
+@mixin button-reset() {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+// for survey only
+
+// main breakpoints - phone and narrow_tablet
+@mixin phone {
+  @media screen and (max-width: 743px) {
+    @content;
+  }
+}
+@mixin narrow_tablet {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin narrow_phone {
+  @media screen and (max-width: 360px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 1080px) {
+    @content;
+  }
+}
+
+@mixin wide_tablet {
+  @media screen and (max-width: 1365px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1200px) and (max-width: 1365px) {
+    @content;
+  }
+}
+
+@mixin only_tablet {
+  @media (min-width: 744px) and (max-width: 1365px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1366px) {
+    @content;
+  }
+}

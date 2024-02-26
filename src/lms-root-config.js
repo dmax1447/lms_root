@@ -8,6 +8,7 @@ import microfrontendLayout from "./microfrontend-layout.html";
 import { getSavedUserToken } from "./helpers";
 import { getCurrentUser } from "./api";
 import nav from "./nav.json";
+import "../assets/styles/layout.css";
 import { routes as courseRoutes } from "@lms/courses";
 console.log("root:course_routes", courseRoutes);
 console.log("root:import_course_routes");

@@ -1,0 +1,11 @@
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function em($pixels) {
+  @return #{strip-unit($pixels) / 16}em;
+}
+
+@function rem($pixels) {
+  @return #{strip-unit($pixels) / 16}rem;
+}
