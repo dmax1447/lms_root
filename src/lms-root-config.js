@@ -6,17 +6,12 @@ import {
 } from "single-spa-layout";
 import microfrontendLayout from "./microfrontend-layout.html";
 import { getSavedUserToken } from "./helpers";
-import { getCurrentUser } from "./api";
-import nav from "./nav.json";
+import { getCurrentUser, getServices } from "./api";
+import { emitter } from "@lms/styleguide";
+import { BehaviorSubject } from "rxjs";
 import "../assets/styles/layout.css";
-import { routes as courseRoutes } from "@lms/courses";
-console.log("root:course_routes", courseRoutes);
-console.log("root:import_course_routes");
-import("@lms/courses").then((module) => {
-  console.log("root:import_course_routes", module);
-});
-
 const token = getSavedUserToken();
+const sidebarNav = new BehaviorSubject([]);
 
 const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
@@ -26,30 +21,21 @@ const applications = constructApplications({
   },
 });
 
-console.log("root:applications", applications);
-
-const layoutEngine = constructLayoutEngine({ routes, applications });
-Promise.allSettled(
-  applications.map((app) => {
-    return System.import(app.name);
-  })
-).then((results) => {
-  console.log("root:import_results", results);
-  const appRoutes = results
-    .filter((result) => result.status === "fulfilled" && result.value.appRoutes)
-    .map((r) => r.value);
-  console.log("root:modules_with_appRoutes", appRoutes);
+emitter.on("app:set_nested_nav", ({ base, routes }) => {
+  const nav = [...sidebarNav.value];
+  const el = nav.find((v) => v.id === base);
+  el.children = routes;
+  sidebarNav.next(nav);
 });
 
-getCurrentUser()
-  .then((user) => {
+const layoutEngine = constructLayoutEngine({ routes, applications });
+
+Promise.all([getCurrentUser(), getServices()])
+  .then(([user, services]) => {
+    sidebarNav.next(services);
     const applicationsWithCustomProps = applications.map((app) => ({
       ...app,
-      customProps: () => ({
-        token,
-        user,
-        nav,
-      }),
+      customProps: () => ({ token, user, sidebarNav }),
     }));
 
     applicationsWithCustomProps.forEach(registerApplication);
@@ -57,5 +43,5 @@ getCurrentUser()
     start();
   })
   .catch((err) => {
-    console.warn("error");
+    console.warn("Error in init", err);
   });

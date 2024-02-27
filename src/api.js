@@ -31,4 +31,19 @@ function getCurrentUser() {
   // return axiosInstance.get("/user/me", params).then((r) => r.data);
 }
 
-export { axiosInstance, getCurrentUser, login };
+function getServices() {
+  const mock = [
+    { id: "courses", type: "internal", title: "Курсы" },
+    { id: "tests", type: "internal", title: "Тесты" },
+    { id: "kit", type: "internal", title: "Кит" },
+    { id: "lk", type: "link", title: "ЛК", path: "https://lk.synergy.ru" },
+  ];
+
+  return new Promise((resolve) => {
+    setTimeout((res) => {
+      resolve(mock);
+    }, 120);
+  });
+}
+
+export { axiosInstance, getCurrentUser, getServices, login };
