@@ -11,29 +11,29 @@
   --color-text-accent-success: #027a48;
 
   /*links*/
---color-link-accent: #2c50ee;
---color-link-visited: #8596e4;
---color-link-contrast: #ffffff;
+  --color-link-accent: #2c50ee;
+  --color-link-visited: #8596e4;
+  --color-link-contrast: #ffffff;
 
   /*icons*/
---color-icon-primary: #0d1140;
---color-icon-secondary: #6e708c;
---color-icon-tertiary: #9ea0b3;
+  --color-icon-primary: #0d1140;
+  --color-icon-secondary: #6e708c;
+  --color-icon-tertiary: #9ea0b3;
   /*old name*/
---color-icon-accent: #de0a26;
---color-icon-accent-success: #6dd22a;
---color-icon-accent-danger: #ff0a47;
---color-icon-accent-warn: #ffd119;
---color-icon-error: #fe1139;
+  --color-icon-accent: #de0a26;
+  --color-icon-accent-success: #6dd22a;
+  --color-icon-accent-danger: #ff0a47;
+  --color-icon-accent-warn: #ffd119;
+  --color-icon-error: #fe1139;
   /*new name*/
---color-icon-accent-dangerous: #ff0a47;
---color-icon-warning: #ffd119;
---color-icon-success: #6dd22a;
---color-icon-info: #2c50ee;
---color-icon-contrast: #ffffff;
+  --color-icon-accent-dangerous: #ff0a47;
+  --color-icon-warning: #ffd119;
+  --color-icon-success: #6dd22a;
+  --color-icon-info: #2c50ee;
+  --color-icon-contrast: #ffffff;
 
   /*buttons*/
---color-button-normal: #ff0a47;
+  --color-button-normal: #ff0a47;
   /*old name*/
   --color-button-primary: #de0a26;
   --color-button-primary-active: #bf090e;
@@ -41,18 +41,18 @@
   --color-button-bg-light: #ffbabc;
   --color-button--bg-light-active: #ffa2a4;
   --color-button-text-disabled: #707c8c;
---color-button-border: #707c8c;
---color-button-accent: #de0a26;
---color-button-secondary: #dfe5ff;
---color-button-active: #e30a40;
+  --color-button-border: #707c8c;
+  --color-button-accent: #de0a26;
+  --color-button-secondary: #dfe5ff;
+  --color-button-active: #e30a40;
   /*name*/
---color-lbutton-light: #0d1140;
---color-lightbutton-hover: #3b3d4e;
---color-lightbutton-active: #252525;
---color-button-contrast: #ffffff;
---color-button-disabled: #f2f2f2;
+  --color-lbutton-light: #0d1140;
+  --color-lightbutton-hover: #3b3d4e;
+  --color-lightbutton-active: #252525;
+  --color-button-contrast: #ffffff;
+  --color-button-disabled: #f2f2f2;
 
---font-button-l: 18px;
+  --font-button-l: 18px;
   --font-button-m: 16px;
   --font-button-s: 14px;
   --font-button-xs: 12px;
@@ -61,12 +61,11 @@
   --radius-button: 4px;
   --padding-button-default: 12px 28px;
 
-   /*Breakpoints*/
+  /*Breakpoints*/
   --sm: 576;
   --md: 768;
   --lg: 992;
   --xl: 1200;
-
 
   --browser-context: 16;
 
@@ -234,7 +233,7 @@
   /*Course Playlist*/
   --course-playlist-width: 280px;
 
-   /*New Design Style Guides Colors*/
+  /*New Design Style Guides Colors*/
   --text-color-dark: #343a40;
   --icon-disabled: #b2bbc4;
   --icon-color: #343a40;
@@ -245,9 +244,7 @@
   --error-hover: #ffeaee;
   --disabled: #f2f2f2;
 
-
-
-   /*todo: стили из фигмы не соответствуют*/
+  /*todo: стили из фигмы не соответствуют*/
   --box-shadow-button-primary: 0px 4px 10px rgba(241, 16, 16, 0.35);
   --box-shadow-button-secondary: none;
   --box-shadow-button-light: 0px 4px 10px rgba(146, 146, 146, 0.15);
@@ -256,7 +253,7 @@
 
   /*todo: стили из фигмы не соответствуют*/
 
-   /*background*/
+  /*background*/
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7f9fd;
   --color-bg-tertiary: #f5f5f5;
@@ -277,10 +274,10 @@
   --stroke-cards: #d4d6db;
   --stroke-select: #a0a2a8;
 
-   /*border-radius*/
+  /*border-radius*/
 
-   /*TODO:Дизы захотели отдельно стилизовать пагнацию (цвета)*/
-   /*pagination*/
+  /*TODO:Дизы захотели отдельно стилизовать пагнацию (цвета)*/
+  /*pagination*/
   --pagination-color-primary: #252525;
   --pagination-color-secondary: #a0a9b2;
   --pagination-color-tertiary: #707c8c;
@@ -288,11 +285,11 @@
   --pagination-arrow-color: #343a40;
   --pagination-arrow-color-disabled: #b2bbc4;
 
-   /*дополнительно для client_road*/
+  /*дополнительно для client_road*/
   --fields-stroke-primary: #eaeaeb;
   --border-stroke-cards: #d3d8e3;
 
-   /*скролл*/
+  /*скролл*/
   --scroll-thumb-color: #9ea0b3;
 
   /*Additional colors*/
