@@ -10,6 +10,7 @@ import { getCurrentUser, getServices } from "./api";
 import { emitter } from "@lms/styleguide";
 import { BehaviorSubject } from "rxjs";
 import "../assets/styles/layout.css";
+
 const token = getSavedUserToken();
 const sidebarNav = new BehaviorSubject([]);
 

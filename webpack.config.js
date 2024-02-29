@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = (webpackConfigEnv, argv) => {
   const orgName = "lms";
@@ -39,6 +40,12 @@ module.exports = (webpackConfigEnv, argv) => {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           orgName,
         },
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: "static", to: "static" },
+          { from: "tinymce", to: "tinymce" },
+        ],
       }),
     ],
   });
