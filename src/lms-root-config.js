@@ -12,6 +12,8 @@ import { BehaviorSubject } from "rxjs";
 import "../assets/styles/layout.css";
 
 const token = getSavedUserToken();
+localStorage.setItem("auth._token.keycloak", token);
+
 const sidebarNav = new BehaviorSubject([]);
 
 const routes = constructRoutes(microfrontendLayout);
