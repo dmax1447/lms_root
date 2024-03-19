@@ -52,6 +52,7 @@
       "imports": {
         "@lms/root-config": "http://localhost:9001/lms-root-config.js",
         "@lms/styleguide": "http://localhost:8200/lms-styleguide.js",
+        "@lms/front-libs": "http://localhost:8201/lms-front-libs.js",
         "@lms/courses": "http://localhost:8001/js/app.js",
         "@lms/tests": "http://localhost:8002/js/app.js",
         "@lms/kit": "http://localhost:8003/js/app.js",
@@ -85,6 +86,7 @@
   </noscript>
   <script>
     System.import('@lms/styleguide');
+    System.import('@lms/front-libs');
     System.import('@lms/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
